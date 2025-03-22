@@ -5,6 +5,7 @@ import { Welcome } from './pages/Welcome';
 import { Dashboard } from './pages/Dashboard';
 import { Navbar } from './components/Navbar';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { ThemeProvider } from './context/ThemeContext';
 const AppRoutes = () => {
   const { isAuthenticated } = useAuth();
   return (
@@ -42,9 +43,13 @@ const AppRoutes = () => {
     
 function App() {
   return (
+    <ThemeProvider>
     <Router>
       <AuthProvider>
         <AppRoutes />
       </AuthProvider>
-    </Router> );}
+    </Router> 
+    </ThemeProvider>
+  );
+}
 export default App;
